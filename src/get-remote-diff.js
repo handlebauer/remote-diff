@@ -61,6 +61,8 @@ const fetchHtml = async href => {
  * @returns {(html: string) => string}
  */
 const parseOuterHtml = selector => html => {
+  // TODO: Consider changing the name of this fn
+
   const $ = loadHtml(html)
 
   let outerHTML = ''
