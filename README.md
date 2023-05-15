@@ -13,7 +13,7 @@ $ npm install @hbauer/remote-diff
 import { getRemoteDiff } from '@hbauer/remote-diff'
 
 const href = 'http://asdf.com'
-const selection = 'p' // all <p> elements
+const selector = 'p' // all <p> elements
 const opts = { basePath: '_data' } // where would you like data stored?
 
 const changes = await getRemoteDiff(href, selector, opts)
