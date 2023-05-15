@@ -1,4 +1,4 @@
-# #hbauer/remote-diff
+# hbauer/remote-diff
 
 ## Install
 
