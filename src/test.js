@@ -9,7 +9,7 @@ import {
 
 const basePath = '__data'
 
-test.beforeEach('tests', async t => {
+test.beforeEach('tests', async _ => {
   try {
     await rm(basePath, { recursive: true })
   } catch (err) {}
