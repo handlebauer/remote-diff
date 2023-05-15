@@ -67,7 +67,11 @@ const parseOuterHtml = selector => html => {
   let outerHTML = ''
 
   $(selector).each((_, element) => {
-    outerHTML += $(element).text().trim().replace(/\t/g, '  ')
+    outerHTML += $(element)
+      .text()
+      .trim()
+      .replaceAll(/\t/g, '  ')
+      .replaceAll(/\s\s+/g, '\n')
     outerHTML += '\n'
   })
 
