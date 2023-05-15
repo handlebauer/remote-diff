@@ -18,9 +18,9 @@ export const getFileDescriptors = (basePath, href) => {
   if (filename === '') {
     /**
      * If the href passed has no pathname, the parsed filename will be
-     * `/`, which isn't helpful to us. In this case, we use the `host`
-     * value for the `filename` instead, and default to the `basePath`
-     * for the `directory` value.
+     * empty, which isn't helpful to us. In this case, we use the `host`
+     * value as the `filename` instead, and default to the `basePath`
+     * for the value of `directory`.
      */
     return { directory: basePath, filename: host }
   }
