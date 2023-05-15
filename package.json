@@ -1,5 +1,5 @@
 {
-  "name": "@hbauer/resource-changes",
+  "name": "@hbauer/remote-diff",
   "version": "0.0.0",
   "type": "module",
   "exports": {
@@ -15,9 +15,14 @@
   ],
   "author": "Donald Geddes",
   "licence": "MIT",
-  "repository": "https://github.com/handlebauer/resource-changes.git",
+  "repository": "https://github.com/handlebauer/remote-diff.git",
   "publishConfig": {
     "access": "public"
+  },
+  "ava": {
+    "require": [
+      "dotenv/config"
+    ]
   },
   "prettier": "@hbauer/prettier-config",
   "eslintConfig": {
@@ -33,6 +38,7 @@
   "devDependencies": {
     "@hbauer/eslint-config": "^1.7.2",
     "@hbauer/prettier-config": "^1.1.0",
+    "@types/diff": "^5.0.3",
     "@types/node": "^20.1.4",
     "ava": "^5.2.0",
     "dotenv": "^16.0.3",
@@ -42,5 +48,9 @@
     "rollup": "^3.21.7",
     "shx": "^0.3.4",
     "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "diff": "^5.1.0"
   }
 }
