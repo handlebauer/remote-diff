@@ -12,7 +12,6 @@ export const getFileDescriptors = (basePath, href) => {
   const host = url.host.split('.').join('-')
   const pathname = url.pathname.split('/').slice(1, -1).join('-')
   const directory = basePath + '/' + host + '/' + pathname
-
   const filename = url.pathname.split('/').at(-1)
 
   if (filename === '') {
