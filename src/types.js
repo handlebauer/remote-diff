@@ -1,9 +1,6 @@
 /**
  * @typedef {{
- * directory: string
- * filename: string
- * existing: boolean,
- * changed: number,
+ * changed: boolean,
  * added: string[],
  * removed: string[]
  * }} ResourceChangeResponse

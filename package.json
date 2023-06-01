@@ -3,8 +3,11 @@
   "version": "0.0.0",
   "type": "module",
   "exports": {
-    "import": "./lib/index.mjs",
-    "require": "./lib/index.cjs"
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.cjs"
+    }
   },
   "module": "./lib/index.mjs",
   "main": "./lib/index.cjs",
@@ -29,13 +32,15 @@
     "extends": "@hbauer/eslint-config"
   },
   "scripts": {
-    "build": "shx rm -rf ./lib && rollup -c",
-    "types": "shx rm -rf ./types && tsc -p jsconfig.json",
-    "prepublishOnly": "npm run types && npm run build",
+    "build": "rollup -c",
+    "types": "tsc -p jsconfig.json",
+    "clean": "shx rm -rf ./lib",
+    "prepublishOnly": "npm run clean && npm run types && npm run build",
     "test": "ava",
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@hbauer/convenience-functions": "^0.35.3",
     "@hbauer/eslint-config": "^1.7.2",
     "@hbauer/prettier-config": "^1.1.0",
     "@types/diff": "^5.0.3",
