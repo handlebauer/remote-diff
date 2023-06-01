@@ -13,8 +13,7 @@
   "main": "./lib/index.cjs",
   "types": "types/index.d.ts",
   "files": [
-    "lib",
-    "types"
+    "lib"
   ],
   "author": "Donald Geddes",
   "licence": "MIT",
