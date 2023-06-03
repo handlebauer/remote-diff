@@ -6,25 +6,10 @@ import { diffLines } from 'diff'
  */
 
 /**
- * @param {string} href
- */
-export const fetchHtml = async href => {
-  const response = await fetch(href)
-
-  if (response.ok === false) {
-    throw new Error(
-      `Fetch to ${response.url} failed: ${response.status} (${response.statusText})`
-    )
-  }
-
-  return response.text()
-}
-
-/**
+ * @param {string} html
  * @param {string} selector
- * @returns {(html: string) => string}
  */
-export const parseHtml = selector => html => {
+export const parseHtml = (html, selector) => {
   const $ = loadHtml(html)
 
   let outerHTML = ''
@@ -63,14 +48,12 @@ const parseDiff = diff =>
   )
 
 /**
- * @param {string} href
- * @param {string} selector
- * @param {string} [previous]
- * @returns {Promise<ResourceChangeResponse>}
+ * @param {string} previous previous HTML
+ * @param {string} current current HTML
+ * @param {string} [selector] element selector
+ * @returns {ResourceChangeResponse}
  */
-export const getRemoteDiff = async (href, selector, previous) => {
-  const current = await fetchHtml(href).then(parseHtml(selector))
-
+export const getRemoteDiff = (previous, current, selector) => {
   if (previous == null) {
     return {
       changed: true,
@@ -78,6 +61,9 @@ export const getRemoteDiff = async (href, selector, previous) => {
       removed: [],
     }
   }
+
+  previous = parseHtml(previous, selector)
+  current = parseHtml(current, selector)
 
   const diff = diffLines(previous, current)
   const { added, removed } = parseDiff(diff)
